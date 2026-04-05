@@ -1,1 +1,18 @@
+#include <stdio.h>
 
+int nCr(int n, int r) {
+    if (r == 0 || r == n) return 1;
+    return nCr(n - 1, r - 1) + nCr(n - 1, r);
+}
+
+int main() {
+    int n,r;
+    printf("Enter values for n and r (n > r): ");
+    scanf("%d %d", &n, &r);
+    if (n >= r) {
+        printf("Value of %dC%d is: %d", n, r, nCr(n, r));
+    } else {
+        printf("Invalid input! n must be greater than or equal to r.");
+    }
+    return 0;
+}
